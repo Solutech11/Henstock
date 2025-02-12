@@ -35,3 +35,14 @@ export { default as bg6 } from "./bg6.jpg";
 export { default as services } from "./services.jpg";
 export { default as contact } from "./contact.jpg";
 export { default as heavytruck } from "./heavytruck.png";
+export { default as AgroExport } from "./agroEXP.jpeg";
+export { default as GrainsNew } from "./grains.jpeg";
+export { default as VAP } from "./VAP.jpeg";
+
+// Certificate
+export { default as CRI } from "./Cert/CRI.jpg";
+export { default as GLP } from "./Cert/GLP.jpg";
+export { default as NAQS } from "./Cert/NAQS.jpg";
+export { default as OLC } from "./Cert/OLC.jpg";
+export { default as SGS } from "./Cert/SGS.png";
+

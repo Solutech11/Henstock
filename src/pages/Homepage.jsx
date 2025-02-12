@@ -22,7 +22,7 @@ const Homepage = () => {
     <Hero bg={bgArray}>
       <AnimatedText text="Welcome to Henstock Foods" />
       <p className="mt-4 text-18 leading-28 text-color-dark-5">
-      your one-stop solution for all your agricultural and food-related needs
+      Driving Sustainable Agro-Commodity Trade and Innovation.
       </p>
       <div className="mt-8">
         <ScrollLink
@@ -194,8 +194,7 @@ const Info1 = () => {
         >
           <h3 className="text-28 leading-38 text-color-dark-1 text-left m-3 font-bold mt-[20px] mx-0 md:mt-0">Harvesting Success Together</h3>
           <div className="text-color-dark-2 text-justify flex flex-col space-y-5">
-            <p>At Henstock Food Limited, we specialize in sourcing and supplying a wide range of agricultural commodities, including grains, pulses, oils, spices, and more. We also provide high-quality charcoal, briquettes, and other wood products to our customers Globally.</p>
-            <p>we are committed to building strong relationships with our customers and partners. We work closely with farmers and marketers to create a link that benefits everyone involved. Our goal is to provide you with the best products and services to help you succeed in your business.</p>
+            <p>HENSTOCK FOODS LTD is a leading agro-commodity trading and food processing company based in Nigeria. We specialize in the distribution and exportation of high-quality neem seeds, cassia tora seeds, and value-added agro-products. Our commitment to sustainability, quality, and innovation drives our operations.</p>
           </div>
         </motion.div>
         <div></div>
@@ -239,8 +238,8 @@ const Info2 = () => {
         >
           <h3 className="text-28 leading-38 text-color-dark-1 text-left m-3 font-bold mx-0 mt-0">Fueling Food Innovation</h3>
           <div className="text-color-dark-2 flex flex-col space-y-5 mb-9">
-            <p>In addition to our agricultural commodities, we offer a variety of services to support the food industry. Our services include food manufacturing, packaging, and rebranding, as well as farming and farm-related services. We also supply food plants, machines, and equipment, and provide water treatment services to ensure the safety and quality of your products.</p>
-            <p>Whether you are looking for agricultural commodities, food manufacturing services, or supply chain solutions, Henstock Food Limited is here to help. Contact us today to learn more about our products and services.</p>
+            <p>Henstock Foods Ltd specializes in agro-commodities, food processing, and modern farming solutions. We prioritize sustainability and quality, offering ethical sourcing, advanced water treatment, and innovative packaging to meet your needs.</p>
+            <p>With a focus on global reach and certified quality, we provide tailored services—from premium seeds to supply chain support—to help your business thrive. Contact us today to discover how we can partner with you.</p>
           </div>
           <Link
             to={PATH_HOME.general.contact}
@@ -346,19 +345,19 @@ const Info3 = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={controls1}
             >
-              <p className="flex flex-row items-center space-x-5"><span className="text-48 text-color-acsent-1">01</span><h3 className="text-28 leading-38">Agricultural Commodities Trading</h3></p>
+              <p className="flex flex-row items-center space-x-5"><span className="text-48 text-color-acsent-1">01</span><h3 className="text-28 leading-38">Quality Assurance</h3></p>
               <ul className="list-none flex flex-col space-y-3 mb-10">
                 <li className="flex items-center">
                   <span className="bg-color-secondary-1 min-w-2 min-h-2 mr-3 rounded-full"></span>
-                  Sourcing and supply of grains, pulses, and cereals
+                  We enforce rigorous quality checks at every stage to ensure top-tier products.
                 </li>
                 <li className="flex items-center">
                   <span className="bg-color-secondary-1 min-w-2 min-h-2 mr-3 rounded-full"></span>
-                  Trading in oils, spices, and other culinary ingredients
+                  Our seeds are certified organic by SGS and Nigerian Agricultural Quarantine Service.
                 </li>
                 <li className="flex items-center">
                   <span className="bg-color-secondary-1 min-w-2 min-h-2 mr-3 rounded-full"></span>
-                  Exporting agricultural products to customers locally and Globally
+                  We provide full traceability from farm to market for complete transparency.
                 </li>
               </ul>
               <Link to={PATH_HOME.general.about}>
@@ -382,19 +381,19 @@ const Info3 = () => {
               initial={{ opacity: 0, x: -30 }}
               animate={controls2}
             >
-              <p className="flex flex-row items-center space-x-5"><span className="text-48 text-color-acsent-1">02</span><h3 className="text-28 leading-38">Food Manufacturing and Packaging</h3></p>
+              <p className="flex flex-row items-center space-x-5"><span className="text-48 text-color-acsent-1">02</span><h3 className="text-28 leading-38">Sustainability</h3></p>
               <ul className="list-none flex flex-col space-y-3 mb-10">
                 <li className="flex items-center">
                   <span className="bg-color-secondary-1 min-w-2 min-h-2 mr-3 rounded-full"></span>
-                  Food manufacturing for private label and bulk orders
+                  We source products responsibly, supporting fair trade and local farmers.
                 </li>
                 <li className="flex items-center">
                   <span className="bg-color-secondary-1 min-w-2 min-h-2 mr-3 rounded-full"></span>
-                  Packaging and rebranding services for food products
+                  Our operations prioritize reducing environmental impact and promoting sustainability.
                 </li>
                 <li className="flex items-center">
                   <span className="bg-color-secondary-1 min-w-2 min-h-2 mr-3 rounded-full"></span>
-                  Quality control and assurance in food processing
+                  We empower local communities through ethical partnerships and initiatives.
                 </li>
               </ul>
               <Link to={PATH_HOME.general.about}>
@@ -430,19 +429,19 @@ const Info3 = () => {
               initial={{ opacity: 0, x: 40 }}
               animate={controls3}
             >
-              <p className="flex flex-row items-center space-x-5"><span className="text-48 text-color-acsent-1">03</span><h3 className="text-28 leading-38">Supply Chain and Logistics</h3></p>
+              <p className="flex flex-row items-center space-x-5"><span className="text-48 text-color-acsent-1">03</span><h3 className="text-28 leading-38">Global Reach</h3></p>
               <ul className="list-none flex flex-col space-y-3 mb-10">
                 <li className="flex items-center">
                   <span className="bg-color-secondary-1 min-w-2 min-h-2 mr-3 rounded-full"></span>
-                  Haulage services for transportation of agricultural products
+                  We partner with leading logistics firms for seamless global delivery.
                 </li>
                 <li className="flex items-center">
                   <span className="bg-color-secondary-1 min-w-2 min-h-2 mr-3 rounded-full"></span>
-                  Warehousing and storage solutions for agricultural goods
+                  Our products are exported to key markets like India, China, and beyond.
                 </li>
                 <li className="flex items-center">
                   <span className="bg-color-secondary-1 min-w-2 min-h-2 mr-3 rounded-full"></span>
-                  Logistics support for efficient supply chain management
+                  We use sea freight for cost-effective and timely international shipments.
                 </li>
               </ul>
               <Link to={PATH_HOME.general.about}>
