@@ -39,7 +39,7 @@ const Homepage = () => {
 
     {/* card section */}
 
-    <CardSection />
+    {/* <CardSection /> */}
 
     {/* detials 1 */}
     
