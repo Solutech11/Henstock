@@ -3,6 +3,8 @@ import { BouncyDownArrow, Button, ContactBanner, Hero } from "../components";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { CRI, GLP, grid, NAQS, nuts1, OLC, SGS } from "../assets";
+import { Link } from "react-router-dom";
+import { PATH_HOME } from "../routes/paths";
 
 const About = () => {
   return <>
@@ -413,12 +415,14 @@ const SustainabilityCommitment = () => {
           <p className="text-lg text-gray-600 mb-6">
             Join us in building a sustainable future. Together, we can make a difference.
           </p>
+
+          <Link to={PATH_HOME.general.contact}>
           <a
-            href="/contact" // Replace with your contact page link
             className="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors"
           >
             Get Involved
           </a>
+          </Link>
         </motion.div>
       </div>
     </motion.section>

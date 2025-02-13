@@ -1,6 +1,8 @@
 import React from "react";
 import { BouncyDownArrow, ContactBanner, Hero } from "../components";
 import { AgroExport, bg6, GrainsNew, services, VAP } from "../assets";
+import { Link } from "react-router-dom";
+import { PATH_HOME } from "../routes/paths";
 
 const Services = () => {
   return <>
@@ -57,12 +59,14 @@ const Services = () => {
             <p className="text-lg text-gray-600 mb-6">
               Ready to partner with us? Contact us today to learn more about our agro-semi-processed commodities.
             </p>
+
+            <Link to={PATH_HOME.general.contact}>
             <a
-              href="/contact" // Replace with your contact page link
               className="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors"
             >
               Get in Touch
             </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -110,12 +114,15 @@ const Services = () => {
             <p className="text-lg text-gray-600 mb-6">
               Interested in our food processing and packaging services? Contact us today to learn more.
             </p>
+
+            <Link to={PATH_HOME.general.contact}>
             <a
               href="/contact" // Replace with your contact page link
               className="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors"
             >
               Get in Touch
             </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -163,12 +170,15 @@ const Services = () => {
             <p className="text-lg text-gray-600 mb-6">
               Looking for reliable agricultural machinery? Contact us today to explore our range of equipment.
             </p>
+
+            <Link to={PATH_HOME.general.contact}>
             <a
               href="/contact" // Replace with your contact page link
               className="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors"
             >
               Get in Touch
             </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -216,12 +226,14 @@ const Services = () => {
             <p className="text-lg text-gray-600 mb-6">
               Explore our range of value-added products and discover how they can benefit your business.
             </p>
+            
+            <Link to={PATH_HOME.general.contact}>
             <a
-              href="/contact" // Replace with your contact page link
               className="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors"
             >
               Learn More
             </a>
+            </Link>
           </div>
         </div>
       </section>
