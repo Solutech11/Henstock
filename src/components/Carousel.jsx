@@ -12,7 +12,10 @@ const ImageCarousel = ({ classes, images, interval = 3000 }) => {
   }, [images.length, interval]);
 
   return (
-    <div className={`w-full h-full overflow-hidden ${classes}`} style={{ height: "100vh" }}>
+    <div
+      className={`w-full h-full overflow-hidden ${classes}`}
+      style={{ height: "100vh" }}
+    >
       {images.map((image, index) => (
         <img
           key={index}

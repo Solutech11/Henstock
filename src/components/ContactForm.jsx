@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -21,7 +22,7 @@ const ContactForm = () => {
     e.preventDefault();
     setErrors(validate(formData));
     setIsSubmitting(true);
-    // Here you can add your logic to submit the form data
+    
   };
 
   const validate = (values) => {
