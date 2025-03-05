@@ -43,7 +43,7 @@ const bgArray = [bg1, bg2, bg3, bg6];
 const Homepage = () => {
   return (
     <>
-      <Hero bg={bgArray} btn={true}/>
+      <Hero bg={bgArray} btn={true} />
       {/* card section */}
 
       {/* <CardSection /> */}
@@ -199,7 +199,7 @@ const Info1 = () => {
       ref={ref}
     >
       {" "}
-      <div className="w-[90%] lg:w-[85%] mx-auto flex flex-col md:flex-row">
+      <div id="card-section" className="w-[90%] lg:w-[85%] mx-auto flex flex-col md:flex-row">
         <motion.div
           className="flex items-center w-full lg:h-[600px] relative "
           initial={{ opacity: 0, x: -50 }}
@@ -247,7 +247,11 @@ const Info1 = () => {
           </div>
         </motion.div>
       </div>
-      <img src={Flower} alt="flower-image" className="w-full h-[80px] object-cover mt-10" />
+      <img
+        src={Flower}
+        alt="flower-image"
+        className="w-full h-[80px] object-cover mt-10"
+      />
     </motion.section>
   );
 };

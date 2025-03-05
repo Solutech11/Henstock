@@ -50,15 +50,15 @@ const Navbar = () => {
 
   return (
     <header
-      className={`
-        fixed w-full top-0 z-40 
-        transition-all duration-300 ease-in-out
-        ${isScrolled 
-          ? 'bg-white shadow-md text-gray-900' 
-          : 'bg-transparent text-white'
-        }
-      `}
-    >
+    className={`
+      fixed w-full top-0 z-40 
+      transition-all duration-300 lg:shadow-md shadow-0 ease-in-out
+      ${isScrolled 
+        ? 'lg:bg-white bg-white shadow-md ' 
+        : 'lg:bg-transparent bg-white text-gray-900 lg:text-white'
+      }
+    `}
+  >
       <div className="lg:w-[85%] mx-auto px-4 flex justify-between items-center h-[10vh]">
         {/* Logo */}
         <Link to="/" className="flex items-center">
@@ -77,13 +77,15 @@ const Navbar = () => {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) => `
-                  transition font-medium text-lg 
-                  ${isActive 
-                    ? 'text-[#F16C21] font-bold border-b-2 border-[#F16C21]' 
-                    : (isScrolled 
-                      ? 'text-gray-800 hover:text-[#F16C21]' 
-                      : 'text-white hover:text-gray-200')
-                  }
+                  transition font-medium text-[17px]
+                   ${isActive 
+            ? (isScrolled 
+              ? 'text-[#F16C21]'
+              : 'text-[#FFFFFF]') 
+            : (isScrolled 
+              ? 'text-gray-800 hover:text-[#F16C21]' 
+              : 'text-[#919191] hover:text-gray-200')
+          }
                 `}
               >
                 {link.label}
@@ -130,13 +132,13 @@ const Navbar = () => {
         >
           {navOpen ? (
             <FaTimes 
-              size={28} 
-              className={`z-50 ${isScrolled ? 'text-gray-800' : 'text-white'}`} 
+              size={25} 
+              className={`z-50 text-gray-800 `} 
             />
           ) : (
             <FaBars 
-              size={28} 
-              className={`z-50 ${isScrolled ? 'text-gray-800' : 'text-white'}`} 
+              size={25} 
+              className={`z-50 text-gray-800`} 
             />
           )}
         </div>
@@ -145,7 +147,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {navOpen && (
         <div className="absolute top-0 left-0 z-40 bg-white w-full h-screen fixed px-8 py-16 md:hidden">
-          <ul className="flex flex-col items-center justify-center h-full">
+          <ul className="flex flex-col justify-center h-full">
             {links.map((link) => (
               <li key={link.to} className="py-4 text-center w-full">
                 <Link

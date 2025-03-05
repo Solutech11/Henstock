@@ -7,6 +7,7 @@ import { EffectFade, Pagination, Autoplay } from "swiper/modules";
 import { CustomBtn } from "../Button";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link as ScrollLink } from "react-scroll";
 
 const Slider = ({ bg, btn }) => {
   const controls = useAnimation();
@@ -69,7 +70,15 @@ const Slider = ({ bg, btn }) => {
 
                 {btn && (
                   <div className="w-full mt-5 flex justify-center items-center">
-                    <CustomBtn title="Learn more" />
+                    <ScrollLink
+                      to="card-section"
+                      spy={true}
+                      smooth={true}
+                      // offset={-10}
+                      duration={1000}
+                    >
+                      <CustomBtn title="Learn more" />
+                    </ScrollLink>
                   </div>
                 )}
               </motion.div>
