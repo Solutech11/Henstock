@@ -9,16 +9,40 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const Services = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({ opacity: 1, y: 0 });
+    } else {
+      controls.set({ opacity: 0, y: 50 });
+    }
+  }, [controls, inView]);
 
   return (
     <>
       <Hero bg={[services]} btn={false} />
 
-      <section id="main" className="pt-10 bg-white ">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={controls}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        id="main"
+        className="pt-10 bg-white "
+      >
         <div className="w-[90%] lg:w-[85%] mx-auto">
           <ServiceTab />
         </div>
-        <img src={Flower} alt="flower-image" className="w-full h-[80px] object-cover mt-10" />
+        <img
+          src={Flower}
+          alt="flower-image"
+          className="w-full h-[80px] object-cover mt-10"
+        />
         <div className="w-full h-[600px]">
           <iframe
             width="100%"
@@ -31,10 +55,7 @@ const Services = () => {
             allowfullscreen
           ></iframe>
         </div>
-
-       
-      </section>
-
+      </motion.div>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Navigate, useRoutes } from "react-router-dom";
+import ScrollTop from "../components/ScrollTop";
 
 // layouts
 import HomepageLayout from "../layouts/homepage";
@@ -38,6 +39,7 @@ export default function Router() {
         },
         { path: "*", element: <Navigate to="/404" replace /> },
       ])}
+    <ScrollTop />
     </>
   );
 }

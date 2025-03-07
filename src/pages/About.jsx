@@ -19,7 +19,7 @@ const About = () => {
       <Hero bg={[nuts1]} btn={false} />
       <Main />
       <MissionVision />
-      <Certificate/>
+      <Certificate />
       {/* <CoreValues /> */}
       {/* <CertificationsPartnerships />
       <SustainabilityCommitment /> */}
@@ -33,7 +33,7 @@ const Main = () => {
   const controlsRight = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.5,
+    threshold: 0.2,
   });
 
   useEffect(() => {
@@ -63,8 +63,9 @@ const Main = () => {
     <motion.section
       id="main"
       initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: "easeOut" }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.1 }}
       className="pt-[100px] bg-white"
       ref={ref}
     >
@@ -72,8 +73,9 @@ const Main = () => {
         <motion.div
           className="w-full"
           initial={{ opacity: 0, x: -50 }}
-          animate={controlsLeft}
-          transition={{ duration: 1, ease: "easeOut" }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           <div className="w-full grid gap-10">
             <div className="grid gap-5">
@@ -111,8 +113,9 @@ const Main = () => {
         <motion.div
           className="w-full"
           initial={{ opacity: 0, x: 50 }}
-          animate={controlsRight}
-          transition={{ duration: 1, ease: "easeOut" }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           <img
             src={bg6}
@@ -121,28 +124,29 @@ const Main = () => {
           />
         </motion.div>
       </div>
-      <img src={Flower} alt="flower-image" className="w-full h-[80px] object-cover mt-10" />
+      <img
+        src={Flower}
+        alt="flower-image"
+        className="w-full h-[80px] object-cover mt-10"
+      />
     </motion.section>
   );
 };
 
 const MissionVision = () => {
-  const controlsLeft = useAnimation();
-  const controlsRight = useAnimation();
+  const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.5,
+    threshold: 0.2,
   });
 
   useEffect(() => {
     if (inView) {
-      controlsLeft.start({ opacity: 1, x: 0 });
-      controlsRight.start({ opacity: 1, x: 0 });
+      controls.start({ opacity: 1, y: 0 });
     } else {
-      controlsLeft.start({ opacity: 0, x: -50 });
-      controlsRight.start({ opacity: 0, x: 50 });
+      controls.set({ opacity: 0, y: 50 });
     }
-  }, [controlsLeft, controlsRight, inView]);
+  }, [controls, inView]);
 
   const InfoData = [
     {
@@ -174,11 +178,11 @@ const MissionVision = () => {
   return (
     <motion.section
       id="main"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-      className="py-[100px] "
       ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={controls}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="py-[100px] "
     >
       <img
         src={Sprinkle}
@@ -186,7 +190,12 @@ const MissionVision = () => {
         className="absolute z-[2] top-10 right-20 mr-20 w-[100px] opacity-80"
       />
 
-      <div className="w-[90%] lg:w-[85%] mx-auto grid gap-12">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={controls}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="w-[90%] lg:w-[85%] mx-auto grid gap-12"
+      >
         <div className="grid gap-5 lg:w-[50%]">
           <div className="w-full  flex justify-start items-center">
             <p className="bg-[#95B28333] rounded-full px-5 py-3 text-base text-[#5C8A3F] font-[Averia Serif Libre] font-normal ">
@@ -219,7 +228,7 @@ const MissionVision = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </motion.section>
   );
 };
@@ -383,7 +392,7 @@ const CertificationsPartnerships = () => {
         <div className="lg:w-[85%] mx-auto w-full py-20">
           <div className="w-full flex justify-start items-center">
             <p className="bg-[#FFF1EA1A] rounded-full px-5 py-3 text-base text-[#1E1E1E] shadow font-[Averia Serif Libre] font-normal ">
-            Partnership & Certification
+              Partnership & Certification
             </p>
           </div>
 

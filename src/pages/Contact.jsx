@@ -14,18 +14,18 @@ import { useInView } from "react-intersection-observer";
 
 const Contact = () => {
   const controls = useAnimation();
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start({ opacity: 1, y: 0 });
-    } else {
-      controls.start({ opacity: 0, y: 50 });
-    }
-  }, [controls, inView]);
+    const [ref, inView] = useInView({
+      triggerOnce: true,
+      threshold: 0.2,
+    });
+  
+    useEffect(() => {
+      if (inView) {
+        controls.start({ opacity: 1, y: 0 });
+      } else {
+        controls.set({ opacity: 0, y: 50 });
+      }
+    }, [controls, inView]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -73,7 +73,7 @@ const Contact = () => {
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={controls}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="w-[90%] lg:w-[85%] mx-auto grid lg:grid-cols-2 gap-8 relative"
         >
           <div className="w-full bg-[#F8F7F7] rounded-3xl overflow-hidden ">

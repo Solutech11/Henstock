@@ -48,7 +48,7 @@ const Slider = ({ bg, btn }) => {
             <img
               src={image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-[100%] object-cover"
+              className="w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
 
@@ -60,7 +60,7 @@ const Slider = ({ bg, btn }) => {
                 transition={{ duration: 1, ease: "easeOut" }}
                 className="lg:max-w-[967px] mx-auto lg:p-10 grid gap-3"
               >
-                <p className="font-[Averia Serif Libre] font-bold leading-[1.1] text-6xl text-[#ffffff] text-center">
+                <p className="font-[Averia Serif Libre] font-bold leading-[1.1] text-5xl lg:text-6xl text-[#ffffff] text-center">
                   Nourishing Lives, Empowering Farmers.
                 </p>
                 <p className="font-[DM Sans] font-medium text-[#ffffff] text-lg text-center">

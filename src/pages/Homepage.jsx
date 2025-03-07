@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Button, Hero, ImageCard, Testimonials } from "../components";
-import { Link as ScrollLink } from "react-scroll";
 import {
   bags_o_grains,
   bg1,
@@ -27,10 +26,7 @@ import {
 } from "../assets";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import AnimatedText from "../components/AnimatedText";
-import { PATH_HOME } from "../routes/paths";
 import { BsFlower1 } from "react-icons/bs";
-import { Link } from "react-router-dom";
 import { CustomBtn } from "../components/Button";
 import Flower from "../assets/flower.png";
 import Sprinkle from "../assets/Sprinkle.svg";
@@ -176,7 +172,7 @@ const Info1 = () => {
   const controlsRight = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.5,
+    threshold: 0.2,
   });
 
   useEffect(() => {
@@ -193,18 +189,23 @@ const Info1 = () => {
     <motion.section
       id="card-section"
       initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-      className="relative w-full pt-[100px] bg-[#fff]"
-      ref={ref}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.1 }}
+      className="relative w-full pt-[50px] lg:pt-[100px] bg-[#fff]"
+      // ref={ref}
     >
       {" "}
-      <div id="card-section" className="w-[90%] lg:w-[85%] mx-auto flex flex-col md:flex-row">
+      <div
+        id="card-section"
+        className="w-[90%] lg:w-[85%] mx-auto flex flex-col md:flex-row"
+      >
         <motion.div
           className="flex items-center w-full lg:h-[600px] relative "
           initial={{ opacity: 0, x: -50 }}
-          animate={controlsLeft}
-          transition={{ duration: 1, ease: "easeOut" }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           <img
             src={guy}
@@ -218,8 +219,9 @@ const Info1 = () => {
         <motion.div
           className="w-full flex flex-col justify-center items-center  lg:px-[40px]"
           initial={{ opacity: 0, x: 50 }}
-          animate={controlsRight}
-          transition={{ duration: 1, ease: "easeOut" }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           <div className="w-full">
             <div className="text-color-dark-2 text-justify flex flex-col space-y-5">
@@ -260,14 +262,14 @@ const Info2 = () => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.5,
+    threshold: 0.2,
   });
 
   useEffect(() => {
     if (inView) {
       controls.start({ opacity: 1, y: 0 });
     } else {
-      controls.start({ opacity: 0, y: 50 });
+      controls.set({ opacity: 0, y: 50 });
     }
   }, [controls, inView]);
 
@@ -303,7 +305,7 @@ const Info2 = () => {
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={controls}
-      transition={{ duration: 1, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       className="relative w-full py-[100px] bg-[#fff]"
     >
       <img
@@ -314,10 +316,9 @@ const Info2 = () => {
       <div className="w-[90%] lg:w-[85%] mx-auto flex flex-col md:flex-row">
         <motion.div
           className="w-full relative grid gap-6"
-          ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={controls}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="w-full grid gap-5">
             <div className="w-full flex justify-start items-center">
@@ -342,10 +343,9 @@ const Info2 = () => {
 
         <motion.div
           className="w-full flex flex-col lg:px-[40px] gap-11 lg:gap-8 mt-16"
-          ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={controls}
-          transition={{ duration: 1, ease: "easeOut" }} // Soft and longer transition
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {InfoData.map((data, id) => (
             <div key={data.id || id} className="w-full grid gap-5">
@@ -369,19 +369,19 @@ const Info2 = () => {
 };
 
 const Info3 = () => {
-  // const controls = useAnimation();
-  // const [ref, inView] = useInView({
-  //   triggerOnce: true,
-  //   threshold: 0.5,
-  // });
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
-  // useEffect(() => {
-  //   if (inView) {
-  //     controls.start({ opacity: 1, y: 0 });
-  //   } else {
-  //     controls.start({ opacity: 0, y: 50 });
-  //   }
-  // }, [controls, inView]);
+  useEffect(() => {
+    if (inView) {
+      controls.start({ opacity: 1, y: 0 });
+    } else {
+      controls.set({ opacity: 0, y: 50 });
+    }
+  }, [controls, inView]);
 
   const InfoData = [
     {
@@ -406,10 +406,10 @@ const Info3 = () => {
 
   return (
     <motion.section
-      // ref={ref}
-      // initial={{ opacity: 0, y: 50 }}
-      // animate={controls}
-      // transition={{ duration: 1, ease: "easeOut" }}
+    ref={ref}
+    initial={{ opacity: 0, y: 50 }}
+    animate={controls}
+    transition={{ duration: 0.8, ease: "easeOut" }}
       className="relative w-full bg-[#fff] "
     >
       <img
@@ -420,10 +420,9 @@ const Info3 = () => {
       <div className="w-[90%] lg:w-[85%] mx-auto">
         <motion.div
           className="w-full lg:w-[50%] relative grid"
-          // ref={ref}
-          // initial={{ opacity: 0, y: 50 }}
-          // animate={controls}
-          // transition={{ duration: 1, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={controls}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="w-full grid gap-5">
             <div className="w-full flex justify-start items-center">
@@ -442,10 +441,9 @@ const Info3 = () => {
 
         <motion.div
           className="w-full grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16"
-          // ref={ref}
-          // initial={{ opacity: 0, y: 50 }}
-          // animate={controls}
-          // transition={{ duration: 1, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={controls}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {InfoData.map((data, id) => (
             <div
@@ -473,10 +471,9 @@ const Info3 = () => {
 
         <motion.div
           className="w-full relative grid pt-[100px]"
-          // ref={ref}
-          // initial={{ opacity: 0, y: 50 }}
-          // animate={controls}
-          transition={{ duration: 1, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={controls}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="bg-img w-full h-[700px] lg:h-[400px] lg:rounded-[50px]">
             <div className="w-full lg:w-[60%] mx-auto p-10 grid gap-5">
