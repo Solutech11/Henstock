@@ -15,10 +15,11 @@ const Button = ({ width, children }) => {
   );
 };
 
-export const CustomBtn = ({title}) => {
+export const CustomBtn = ({title, onClick}) => {
   return (
     <div
       type="button"
+      onClick={onClick}
       className={`cursor-pointer bg-[#5C8A3F] hover:bg-[#446f29] text-white text-base font-[DM Sans] font-medium py-3 px-10 flex flex-row justify-center items-center rounded-full`}
     >
       {title} <FaArrowRight size={20} className="ml-3" />

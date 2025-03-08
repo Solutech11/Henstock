@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Button, Hero, ImageCard, Testimonials } from "../components";
+import { Link as ScrollLink } from "react-scroll";
 import {
   bags_o_grains,
   bg1,
@@ -33,141 +34,51 @@ import Sprinkle from "../assets/Sprinkle.svg";
 import Stable from "../assets/stable.png";
 import global from "../assets/global.png";
 import Field from "../assets/field.png";
+import { useNavigate } from "react-router-dom";
+import AnimatedText from "../components/AnimatedText";
 
 const bgArray = [bg1, bg2, bg3, bg6];
 
 const Homepage = () => {
   return (
     <>
-      <Hero bg={bgArray} btn={true} />
-      {/* card section */}
+      <div className="w-full block lg:hidden">
+        <Hero bg={bgArray}>
+          <AnimatedText text="Nourishing Lives, Empowering Farmers." />
+          <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
+            Providing quality agro-commodity trade, food production, and modern
+            farm solutions.
+          </p>
 
-      {/* <CardSection /> */}
+          <div className="mt-8">
+            <ScrollLink
+              to="card-section"
+              spy={true}
+              smooth={true}
+              // offset={-10}
+              duration={1000}
+            >
+              <CustomBtn title="Learn More"/>
+            </ScrollLink>
+          </div>
+        </Hero>
+      </div>
 
-      {/* detials 1 */}
+      <div className="hidden lg:block">
+        <Hero bg={bgArray} btn={true} />
+      </div>
 
       <Info1 />
 
       <Info2 />
 
       <Info3 />
-
-      {/* <Testimonials /> */}
     </>
   );
 };
 
-// card section component
-
-const CardSection = () => {
-  const controls = useAnimation();
-  const { ref, inView } = useInView();
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    } else {
-      controls.start("hidden");
-    }
-  }, [controls, inView]);
-
-  const flowerVariant = {
-    hidden: { scale: 0.3, rotate: 45, transformOrigin: "center" },
-    visible: {
-      scale: 1,
-      rotate: 0,
-      transition: {
-        duration: 1,
-        ease: "easeOut",
-      },
-    },
-    transformOrigin: "center",
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.2,
-        ease: "easeOut",
-        when: "beforeChildren",
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const cardItemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  return (
-    <section
-      id="card-section"
-      className="relative flex items-center justify-center py-[100px]  max-w-[100vw]"
-    >
-      <img
-        src={vinesCutout}
-        alt=""
-        className="absolute z-[0] w-[300px] -left-[100px] bottom-0 opacity-80"
-      />
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        animate={controls}
-        variants={flowerVariant}
-        className="text-color-dark-4 absolute top-[35px] left-[calc(50% - 75px)] z-[0] text-[150px] z-[2]"
-      >
-        <BsFlower1 />
-      </motion.div>
-      <div className="max-w-[800px] z-[2]">
-        <p className="text-center italic text-color-acsent-1">Explore</p>
-        <h3 className="text-28 leading-38 text-center m-3">
-          We <span className="font-semibold">Offer</span>
-        </h3>
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={controls}
-          variants={cardVariants}
-          className="grid flex flex-col md:grid-cols-3 md:grid-rows-2 gap-5 mt-10 items-center justify-center"
-        >
-          <motion.div variants={cardItemVariants} className="image-card">
-            <ImageCard bg={grains}>Grains and Pulses</ImageCard>
-          </motion.div>
-          <motion.div variants={cardItemVariants} className="image-card">
-            <ImageCard bg={spices}>Spices and Culinary Ingredients</ImageCard>
-          </motion.div>
-          <motion.div variants={cardItemVariants} className="image-card">
-            <ImageCard bg={oils}>Oils and Cooking Essentials</ImageCard>
-          </motion.div>
-          <motion.div variants={cardItemVariants} className="image-card">
-            <ImageCard bg={grill}>Grilled and Barbecue Supplies</ImageCard>
-          </motion.div>
-          <motion.div variants={cardItemVariants} className="image-card">
-            <ImageCard bg={packaging}>
-              Food Manufacturing and Packaging
-            </ImageCard>
-          </motion.div>
-          <motion.div variants={cardItemVariants} className="image-card">
-            <ImageCard bg={logistics}>Supply Chain Solutions</ImageCard>
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
 const Info1 = () => {
+  const navigate = useNavigate();
   const controlsLeft = useAnimation();
   const controlsRight = useAnimation();
   const [ref, inView] = useInView({
@@ -243,7 +154,10 @@ const Info1 = () => {
                 Products: Rice, Neem Seeds, Cassia Tora, Sesame, Soya Beans
               </p>
               <div className="w-full flex justify-start items-center">
-                <CustomBtn title="Read more" />
+                <CustomBtn
+                  title="Read more"
+                  onClick={() => navigate("/about")}
+                />
               </div>
             </div>
           </div>
@@ -406,10 +320,10 @@ const Info3 = () => {
 
   return (
     <motion.section
-    ref={ref}
-    initial={{ opacity: 0, y: 50 }}
-    animate={controls}
-    transition={{ duration: 0.8, ease: "easeOut" }}
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={controls}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       className="relative w-full bg-[#fff] "
     >
       <img
@@ -475,8 +389,8 @@ const Info3 = () => {
           animate={controls}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="bg-img w-full h-[700px] lg:h-[400px] lg:rounded-[50px]">
-            <div className="w-full lg:w-[60%] mx-auto p-10 grid gap-5">
+          <div className="bg-img w-full h-[700px] lg:h-[400px] rounded-2xl lg:rounded-[50px]">
+            <div className="w-full lg:w-[60%] mx-auto p-5 lg:p-10 grid gap-5 ">
               <p className="font-[Averia Serif Libre] tracking-widest font-bold text-4xl lg:text-[48px] text-center text-[#fff]">
                 Ready to Grow with Us?
               </p>
@@ -485,7 +399,7 @@ const Info3 = () => {
                 orders.
               </p>
               <div className="w-full justify-center items-center mt-10">
-                <div className="lg:w-[466px] mx-auto flex justify-between items-center bg-white/10 backdrop-blur-sm rounded-full">
+                <div className="lg:w-[466px] w-full mx-auto flex justify-between items-center bg-white/10 backdrop-blur-sm rounded-full">
                   <input
                     type="email"
                     name=""

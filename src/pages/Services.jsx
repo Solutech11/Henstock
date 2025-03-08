@@ -7,6 +7,7 @@ import ServiceTab from "../components/sub-comp/Tabs/ServiceTab";
 import Flower from "../assets/flower.png";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import AnimatedText from "../components/AnimatedText";
 
 const Services = () => {
   const controls = useAnimation();
@@ -25,7 +26,18 @@ const Services = () => {
 
   return (
     <>
-      <Hero bg={[services]} btn={false} />
+      <div className="w-full block lg:hidden">
+        <Hero bg={[services]}>
+          <AnimatedText text="Nourishing Lives, Empowering Farmers." />
+          <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
+            Providing quality agro-commodity trade, food production, and modern
+            farm solutions.
+          </p>
+        </Hero>
+      </div>
+      <div className="hidden lg:block">
+        <Hero bg={[services]} btn={false} />
+      </div>
 
       <motion.div
         ref={ref}

@@ -11,21 +11,22 @@ import { CiLocationOn, CiMail } from "react-icons/ci";
 import Flower from "../assets/flower.png";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import AnimatedText from "../components/AnimatedText";
 
 const Contact = () => {
   const controls = useAnimation();
-    const [ref, inView] = useInView({
-      triggerOnce: true,
-      threshold: 0.2,
-    });
-  
-    useEffect(() => {
-      if (inView) {
-        controls.start({ opacity: 1, y: 0 });
-      } else {
-        controls.set({ opacity: 0, y: 50 });
-      }
-    }, [controls, inView]);
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({ opacity: 1, y: 0 });
+    } else {
+      controls.set({ opacity: 0, y: 50 });
+    }
+  }, [controls, inView]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -35,16 +36,22 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState({
+    submitted: false,
+    success: false,
+    message: "",
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setErrors(validate(formData));
-    setIsSubmitting(true);
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: "",
+      });
+    }
   };
 
   const validate = (data) => {
@@ -64,9 +71,75 @@ const Contact = () => {
     return errors;
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationErrors = validate(formData);
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0) {
+      setIsSubmitting(true);
+
+      try {
+        const response = await fetch(
+          "https://formspree.io/f/xnnpalpo",
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
+          setFormStatus({
+            submitted: true,
+            success: true,
+            message: "Thank you for your message! We'll get back to you soon.",
+          });
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+            phone: "",
+          });
+        } else {
+          setFormStatus({
+            submitted: true,
+            success: false,
+            message:
+              data.error || "Something went wrong. Please try again later.",
+          });
+        }
+      } catch (error) {
+        setFormStatus({
+          submitted: true,
+          success: false,
+          message: "Network error. Please check your connection and try again.",
+        });
+      } finally {
+        setIsSubmitting(false);
+      }
+    }
+  };
+
   return (
     <>
-      <Hero bg={[contact]} btn={false} />
+      <div className="w-full block lg:hidden">
+        <Hero bg={[contact]}>
+          <AnimatedText text="Nourishing Lives, Empowering Farmers." />
+          <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
+            Providing quality agro-commodity trade, food production, and modern
+            farm solutions.
+          </p>
+        </Hero>
+      </div>
+      <div className="hidden lg:block">
+        <Hero bg={[contact]} btn={false} />
+      </div>
 
       <section id="contact" className="py-[100px] bg-white ">
         <motion.div
@@ -80,70 +153,99 @@ const Contact = () => {
             <div className="px-3 lg:px-10 pt-10 lg:flex items-center">
               <div className="grid gap-3 w-full">
                 <p className="font-[Averia Serif Libre] font-semibold mb-3 text-3xl lg:text-[32px] lg:pr-20 leading-[1.3] text-[#000]">
-                  We’d love to hear from you! Get in touch
+                  We'd love to hear from you! Get in touch
                 </p>
 
-                <CustomInput
-                  placeholder="Enter your first name"
-                  label="First Name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  error={errors.name}
-                />
-
-                <CustomInput
-                  label="Email"
-                  name="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  error={errors.email}
-                />
-
-                <CustomInput
-                  placeholder="000000"
-                  label="Phone Number"
-                  type="number"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  error={errors.phone}
-                />
-
-                <div className="mb-4">
-                  <label
-                    htmlFor="message"
-                    className="block Serif Libre] text-sm font-medium mb-2 text-black"
+                {formStatus.submitted && (
+                  <div
+                    className={`p-4 lg:px-5 lg:py-10 mb-4 rounded-xl shadow ${
+                      formStatus.success
+                        ? "bg-green-100 text-green-800"
+                        : "bg-red-100 text-red-800"
+                    }`}
                   >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="5"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className={`mt-1 block w-full px-3 py-2 font-[Averia Serif Libre] text-base rounded-3xl border bg-[#F8F7F7] ${
-                      errors.message ? "border-red-500" : "border-gray-300"
-                    } rounded-md shadow-sm focus:outline-none focus:border-[#F16C21] sm:text-sm`}
-                  ></textarea>
-                  {errors.message && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.message}
-                    </p>
-                  )}
-                </div>
+                    {formStatus.message}
+                    {formStatus.success && (
+                      <button
+                        onClick={() =>
+                          setFormStatus({
+                            submitted: false,
+                            success: false,
+                            message: "",
+                          })
+                        }
+                        className="mt-2 lg:mt-5 bg-[#5C8A3F] hover:bg-[#64a13e] text-white font-[DM Sans] font-medium py-2 px-4 rounded-full"
+                      >
+                        Send another message
+                      </button>
+                    )}
+                  </div>
+                )}
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  onClick={handleSubmit}
-                  className="bg-[#5C8A3F] lg:w-full hover:bg-[#64a13e] text-base text-white font-[DM Sans] font-medium py-3.5 px-5 flex flex-row justify-center my-12 items-center rounded-full"
-                >
-                  {isSubmitting ? "Submitting..." : "Send a message"}
-                </button>
+                {!formStatus.success && (
+                  <form onSubmit={handleSubmit}>
+                    <CustomInput
+                      placeholder="Enter your name"
+                      label="Name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      error={errors.name}
+                    />
+
+                    <CustomInput
+                      label="Email"
+                      name="email"
+                      type="email"
+                      placeholder="Enter your email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      error={errors.email}
+                    />
+
+                    <CustomInput
+                      placeholder="000000"
+                      label="Phone Number"
+                      type="number"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      error={errors.phone}
+                    />
+
+                    <div className="mb-4">
+                      <label
+                        htmlFor="message"
+                        className="block Serif Libre] text-sm font-medium mb-2 text-black"
+                      >
+                        Message
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        value={formData.message}
+                        onChange={handleChange}
+                        className={`mt-1 block w-full px-3 py-2 font-[Averia Serif Libre] text-base rounded-3xl border bg-[#F8F7F7] ${
+                          errors.message ? "border-red-500" : "border-gray-300"
+                        } rounded-md shadow-sm focus:outline-none focus:border-[#F16C21] sm:text-sm`}
+                      ></textarea>
+                      {errors.message && (
+                        <p className="mt-1 text-sm text-red-500">
+                          {errors.message}
+                        </p>
+                      )}
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="bg-[#5C8A3F] lg:w-full hover:bg-[#64a13e] text-base text-white font-[DM Sans] font-medium py-3.5 px-5 flex flex-row justify-center my-12 items-center rounded-full"
+                    >
+                      {isSubmitting ? "Submitting..." : "Send a message"}
+                    </button>
+                  </form>
+                )}
               </div>
             </div>
             <img
@@ -155,7 +257,7 @@ const Contact = () => {
           <div className="w-full flex justify-center items-center lg:px-10">
             <div className="w-full">
               <p className="font-[Averia Serif Libre] font-semibold mb-3 text-[32px] lg:pr-20 leading-[1.3] text-[#000]">
-                We’d love to hear from you! Get in touch
+                We'd love to hear from you! Get in touch
               </p>
 
               <p className="text-[17px] text-[#1E1E1E] font-[DM Sans] font-normal">

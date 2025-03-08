@@ -12,11 +12,24 @@ import icon2 from "../assets/icon2.png";
 import icon3 from "../assets/icon3.png";
 import icon4 from "../assets/icon4.png";
 import Certificate from "../components/sub-comp/Certificate";
+import AnimatedText from "../components/AnimatedText";
 
 const About = () => {
   return (
     <>
-      <Hero bg={[nuts1]} btn={false} />
+      <div className="w-full block lg:hidden">
+        <Hero bg={[nuts1]}>
+          <AnimatedText text="Nourishing Lives, Empowering Farmers." />
+          <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
+            Providing quality agro-commodity trade, food production, and modern
+            farm solutions.
+          </p>
+        </Hero>
+      </div>
+      <div className="hidden lg:block">
+        <Hero bg={[nuts1]} btn={false} />
+      </div>
+
       <Main />
       <MissionVision />
       <Certificate />
