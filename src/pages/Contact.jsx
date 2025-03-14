@@ -29,6 +29,7 @@ const Contact = () => {
     }
   }, [controls, inView]);
 
+  const recaptchaRef = useRef(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -46,12 +47,18 @@ const Contact = () => {
 
   const handleCaptchaChange = (value) => {
     setCaptchaValue(value);
+    if (formStatus.message.includes("reCAPTCHA")) {
+      setFormStatus({
+        submitted: false,
+        success: false,
+        message: "",
+      });
+    }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    // Clear error for this field when user starts typing
     if (errors[name]) {
       setErrors({
         ...errors,
@@ -101,7 +108,10 @@ const Contact = () => {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify({
+            ...formData,
+            "g-recaptcha-response": captchaValue,
+          }),
         });
 
         const data = await response.json();
@@ -112,6 +122,9 @@ const Contact = () => {
             success: true,
             message: "Thank you for your message! We'll get back to you soon.",
           });
+          if (recaptchaRef.current) {
+            recaptchaRef.current.reset();
+          }
           setCaptchaValue(null);
           setFormData({
             name: "",
@@ -250,11 +263,18 @@ const Contact = () => {
                       )}
                     </div>
 
-                    <ReCAPTCHA
-                      sitekey="6Ldzx_QqAAAAALrX8txAVXy94A9m4su9AvZ1Ut65"
-                      onChange={handleCaptchaChange}
-                      className="mb-3"
-                    />
+                    <div className="mb-3">
+                      <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey="6Ldzx_QqAAAAALrX8txAVXy94A9m4su9AvZ1Ut65"
+                        onChange={handleCaptchaChange}
+                      />
+                      {formStatus.submitted && !captchaValue && formStatus.message.includes("reCAPTCHA") && (
+                        <p className="mt-1 text-sm text-red-500">
+                          {formStatus.message}
+                        </p>
+                      )}
+                    </div>
 
                     <button
                       type="submit"
