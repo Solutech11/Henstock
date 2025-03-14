@@ -12,6 +12,7 @@ import Flower from "../assets/flower.png";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import AnimatedText from "../components/AnimatedText";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
   const controls = useAnimation();
@@ -34,6 +35,7 @@ const Contact = () => {
     message: "",
     phone: "",
   });
+  const [captchaValue, setCaptchaValue] = useState(null);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStatus, setFormStatus] = useState({
@@ -41,6 +43,10 @@ const Contact = () => {
     success: false,
     message: "",
   });
+
+  const handleCaptchaChange = (value) => {
+    setCaptchaValue(value);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -76,21 +82,27 @@ const Contact = () => {
     const validationErrors = validate(formData);
     setErrors(validationErrors);
 
+    if (!captchaValue) {
+      setFormStatus({
+        submitted: true,
+        success: false,
+        message: "Please complete the reCAPTCHA verification.",
+      });
+      return;
+    }
+
     if (Object.keys(validationErrors).length === 0) {
       setIsSubmitting(true);
 
       try {
-        const response = await fetch(
-          "https://formspree.io/f/xnnpalpo",
-          {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          }
-        );
+        const response = await fetch("https://formspree.io/f/xnnpalpo", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
 
         const data = await response.json();
 
@@ -100,6 +112,7 @@ const Contact = () => {
             success: true,
             message: "Thank you for your message! We'll get back to you soon.",
           });
+          setCaptchaValue(null);
           setFormData({
             name: "",
             email: "",
@@ -236,6 +249,12 @@ const Contact = () => {
                         </p>
                       )}
                     </div>
+
+                    <ReCAPTCHA
+                      sitekey="6Ldzx_QqAAAAALrX8txAVXy94A9m4su9AvZ1Ut65"
+                      onChange={handleCaptchaChange}
+                      className="mb-3"
+                    />
 
                     <button
                       type="submit"
