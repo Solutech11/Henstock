@@ -3,12 +3,15 @@ import Tab1 from "./Tab1";
 import Tab2 from "./Tab2";
 import Tab3 from "./Tab3";
 import Tab4 from "./Tab4";
+import Tab5 from "./Tab5";
 
 const Tabs = [
-  { label: "Agro-Commodity Trade", key: "tab1", component: Tab1 },
-  { label: "Food Processing & Packaging", key: "tab2", component: Tab2 },
-  { label: "Farm Equipment Supply", key: "tab3", component: Tab3 },
-  { label: "Value-Added Products", key: "tab4", component: Tab4 },
+  { label: "Agro-Commodity Sourcing", key: "tab1", component: Tab1 },
+  { label: "Processing & Value Addition", key: "tab2", component: Tab2 },
+  { label: "Export & Logistics Services", key: "tab3", component: Tab3 },
+  { label: "Advisory & Consulting Services", key: "tab4", component: Tab4 },
+  { label: "Retail & E-commerce Services", key: "tab5", component: Tab5 },
+
 ];
 
 const ServiceTab = () => {

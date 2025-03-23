@@ -7,7 +7,7 @@ import { henstockLogo } from "../assets";
 const links = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
+  { to: "/services", label: "Our Services" },
   { to: "/contact", label: "Contact" },
 ];
 

@@ -28,15 +28,19 @@ const Services = () => {
     <>
       <div className="w-full block lg:hidden">
         <Hero bg={[services]}>
-          <AnimatedText text="Nourishing Lives, Empowering Farmers." />
+          <AnimatedText text="Empowering Agriculture, One Innovation at a Time" />
           <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
-            Providing quality agro-commodity trade, food production, and modern
-            farm solutions.
+          From farm to factory to freight — Henstock Foods delivers more than commodities.
           </p>
         </Hero>
       </div>
       <div className="hidden lg:block">
-        <Hero bg={[services]} btn={false} />
+        <Hero bg={[services]} btn={false}>
+          <AnimatedText text="Empowering Agriculture, One Innovation at a Time" />
+          <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
+          From farm to factory to freight — Henstock Foods delivers more than commodities.
+          </p>
+        </Hero>
       </div>
 
       <motion.div

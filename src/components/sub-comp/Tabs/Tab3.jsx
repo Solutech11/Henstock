@@ -2,55 +2,41 @@ import React from "react";
 import bg6 from "../../../assets/bg6.jpg";
 import imgT3 from "../../../assets/T3.jpg";
 import imgT4 from "../../../assets/T3i.jpg";
+import { tab1_1, tab1_2, tab1_3 } from "../../../assets/supplies";
 
 
 const Tab3 = ({ label }) => {
   return (
-    <div className="w-full grid gap-9">
-      <div className="grid gap-5">
-        <div className="w-full  flex justify-start items-center">
-          <p className="bg-[#95B28333] rounded-full px-6 py-3 text-base text-[#5C8A3F] font-[Averia Serif Libre] font-normal ">
-            {label}
-          </p>
-        </div>
-        <div>
-          <p className="text-lg text-[#1E1E1E] font-[DM Sans] font-medium">
-            Offering modern agricultural machinery to enhance productivity and
-            efficiency.
-          </p>
-          <p className="text-[17px] text-[#1E1E1E] font-[DM Sans] font-normal">
-            We provide farmers with high-quality tools and equipment that make
-            farming easier and more efficient. Our range includes everything
-            from small-scale farm tools to large industrial-grade machinery.
-          </p>
-        </div>
-      </div>
-      <div className="w-full grid lg:grid-cols-2 gap-10">
-        <img src={imgT3} alt="" className=" w-full lg:h-[405px] rounded-3xl" />
-        <img src={imgT4} alt="" className="w-full lg:h-[405px] rounded-3xl" />
-      </div>
-      <div className="w-full">
-        <div className="flex items-center space-x-2">
-          <div className="p-[2.5px] rounded-full bg-black"></div>
-          <p className="font-[DM Sans] font-normal text-[#1E1E1E] text-[17px]">
-            <span className="font-medium text-black">Equipments:</span> Tractors, Planters, Harvesters, Irrigation Systems
-          </p>
-        </div>
-        <div className="flex items-center space-x-2">
-          <div className="p-[2.5px] rounded-full bg-black"></div>
-          <p className="font-[DM Sans] font-normal text-[#1E1E1E] text-[17px]">
-            <span className="font-medium text-black">Additional Services:</span> Installation, Maintenance, and Training
-          </p>
-        </div>
-        <div className="flex items-center space-x-2">
-          <div className="p-[2.5px] rounded-full bg-black"></div>
-          <p className="font-[DM Sans] font-normal text-[#1E1E1E] text-[17px]">
-            <span className="font-medium text-black">Support:</span>{" "}
-            Ongoing customer service for troubleshooting and repairs
-          </p>
-        </div>
-      </div>
-    </div>
+    <div className="max-w bg-whiterounded-lg p-6 w-full flex flex-col sm:flex-row gap-6 relative">
+                    {/* Left Side Content */}
+                    <div className="sm:w-2/3">
+                        <div className="bg-green-100 text-green-800 px-4 py-2 rounded-lg font-semibold mb-4 w-fit">
+                            {label}
+                        </div>
+                        <p className="text-gray-700 mb-4">
+                        We handle the complexities of international trade so our partners can focus on their business. From documentation to global shipping, Henstock Foods ensures a seamless export process, with compliance and warehousing support every step of the way.
+                        </p>
+                        <ul className="list-disc list-inside text-gray-700 mb-4 space-y-8">
+                            <li><strong>International Shipping & Freight Forwarding:</strong> Managing export logistics, documentation, and customs clearance, ensuring timely delivery.</li>
+                            <li><strong>Trade Compliance & Certification:</strong> Assisting clients in acquiring essential certifications such as HACCP, NAFDAC, FDA, and EU Export Standards.</li>
+                            <li><strong>Warehousing & Distribution:</strong> Offering safe storage facilities and distribution networks to support local and international delivery.</li>
+                            
+                        </ul>
+                        
+                    </div>
+                    
+                    {/* Right Side Images - Adjusted Layout */}
+                    <div className="sm:w-1/2 flex flex-col gap-4">
+                        <img src={tab1_1}alt="Processing Image" className="w-full h-64 object-cover rounded-lg shadow" />
+                        <div className="flex gap-4">
+                            <img src={tab1_2} alt="Processing Image" className="w-1/2 h-40 object-cover rounded-lg shadow" />
+                            <img src={tab1_3} alt="Processing Image" className="w-1/2 h-40 object-cover rounded-lg shadow" />
+                        </div>
+                    </div>
+                    
+                    {/* Top Right Decorative Icon */}
+                    <div className="absolute top-2 right-4 text-gray-400 text-2xl">〰️〰️〰️</div>
+                </div>
   );
 };
 

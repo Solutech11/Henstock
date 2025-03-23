@@ -2,7 +2,7 @@ import React from "react";
 import bg6 from "../../../assets/bg6.jpg";
 import { tab4_1, tab4_2, tab4_3 } from "../../../assets/supplies";
 
-const Tab4 = ({ label }) => {
+const Tab5 = ({ label }) => {
   return (
     <div className="max-w bg-whiterounded-lg p-6 w-full flex flex-col sm:flex-row gap-6 relative">
                         {/* Left Side Content */}
@@ -11,13 +11,11 @@ const Tab4 = ({ label }) => {
                                 {label}
                             </div>
                             <p className="text-gray-700 mb-4">
-                            We don’t just supply products — we empower businesses with knowledge. Henstock Foods offers expert advisory services, providing market insights, quality assurance support, and specialized agro-processing training to help clients succeed.
+                            Henstock Foods is bridging the gap between large-scale suppliers and small-scale buyers
                             </p>
                             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-8">
-                                <li><strong>Market Research & Pricing Trends:</strong> Delivering data-driven insights into global market pricing, demand trends, and supply chain analysis.</li>
-                                <li><strong>Agro-Processing & Value Addition Training:</strong> Equipping businesses with techniques to maximize product usability and profitability.</li>
-                                <li><strong>Quality Control & Assurance Services:</strong> Helping clients achieve international food safety standards through laboratory testing, certification, and compliance guidance.</li>
-                                
+                                <li><strong>Online Agro-Commodity Marketplace:</strong> A convenient platform for small-scale buyers to purchase high-quality agricultural products directly.</li>
+                                <li><strong>Subscription & Bulk Purchasing Plans:</strong> Offering long-term supply contracts with discounts and tailored deals for returning clients and high-volume buyers.</li>
                             </ul>
                             
                         </div>
@@ -37,4 +35,4 @@ const Tab4 = ({ label }) => {
   );
 };
 
-export default Tab4;
+export default Tab5;
