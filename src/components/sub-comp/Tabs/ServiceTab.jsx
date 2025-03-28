@@ -3,12 +3,14 @@ import Tab1 from "./Tab1";
 import Tab2 from "./Tab2";
 import Tab3 from "./Tab3";
 import Tab4 from "./Tab4";
+import Tab5 from "./Tab5";
 
 const Tabs = [
   { label: "Agro-Commodity Trade", key: "tab1", component: Tab1 },
   { label: "Food Processing & Packaging", key: "tab2", component: Tab2 },
   { label: "Farm Equipment Supply", key: "tab3", component: Tab3 },
   { label: "Value-Added Products", key: "tab4", component: Tab4 },
+  { label: "Retail & E-commerce Services", key: "tab5", component: Tab5 },
 ];
 
 const ServiceTab = () => {
@@ -28,13 +30,13 @@ const ServiceTab = () => {
             decision-making, customer relationships, and long-term growth.
           </p>
         </div>
-        <div className="w-full mt-16 grid gap-10">
+        <div className="w-full mt-16 grid gap-4">
           <div className="flex justify-center items-center mb-14">
-            <ul className="rounded-[4px] flex flex-wrap gap-5 lg:gap-10">
+            <ul className="rounded-[4px] flex flex-wrap gap-5 lg:gap-5 ">
               {Tabs.map(({ label, key }) => (
                 <li key={key} className="text-sm cursor-pointer ">
                   <button
-                    className={`px-8 rounded-full py-3 text-base font-normal shadow-sm ${
+                    className={`px-6 rounded-full py-3 text-base font-normal shadow-sm ${
                       activeTab === key
                         ? "bg-[#5C8A3F] text-[#FFFFFF]"
                         : "text-[#1E1E1E] bg-[#F5F5F5]"

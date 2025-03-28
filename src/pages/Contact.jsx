@@ -156,7 +156,7 @@ const Contact = () => {
     <>
       <div className="w-full block lg:hidden">
         <Hero bg={[contact]}>
-          <AnimatedText text="Nourishing Lives, Empowering Farmers." />
+          <AnimatedText text="Let’s Connect and Grow Together." />
           <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
             Providing quality agro-commodity trade, food production, and modern
             farm solutions.
@@ -164,7 +164,12 @@ const Contact = () => {
         </Hero>
       </div>
       <div className="hidden lg:block">
-        <Hero bg={[contact]} btn={false} />
+        <Hero
+          bg={[contact]}
+          btn={false}
+          title="Let’s Connect and Grow Together."
+          subTitle="Providing quality agro-commodity trade, food production, and modern farm solutions."
+        />
       </div>
 
       <section id="contact" className="py-[100px] bg-white ">
@@ -269,11 +274,13 @@ const Contact = () => {
                         sitekey="6Ldzx_QqAAAAALrX8txAVXy94A9m4su9AvZ1Ut65"
                         onChange={handleCaptchaChange}
                       />
-                      {formStatus.submitted && !captchaValue && formStatus.message.includes("reCAPTCHA") && (
-                        <p className="mt-1 text-sm text-red-500">
-                          {formStatus.message}
-                        </p>
-                      )}
+                      {formStatus.submitted &&
+                        !captchaValue &&
+                        formStatus.message.includes("reCAPTCHA") && (
+                          <p className="mt-1 text-sm text-red-500">
+                            {formStatus.message}
+                          </p>
+                        )}
                     </div>
 
                     <button

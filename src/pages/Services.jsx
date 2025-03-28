@@ -8,6 +8,7 @@ import Flower from "../assets/flower.png";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import AnimatedText from "../components/AnimatedText";
+import ServiceImg from "../assets/serviceImg.jpg";
 
 const Services = () => {
   const controls = useAnimation();
@@ -27,16 +28,21 @@ const Services = () => {
   return (
     <>
       <div className="w-full block lg:hidden">
-        <Hero bg={[services]}>
-          <AnimatedText text="Nourishing Lives, Empowering Farmers." />
+        <Hero bg={[ServiceImg]}>
+          <AnimatedText text="Empowering Agriculture, One Innovation at a Time" />
           <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
-            Providing quality agro-commodity trade, food production, and modern
-            farm solutions.
+            From farm to factory to freight — Henstock Foods delivers more than
+            commodities.
           </p>
         </Hero>
       </div>
       <div className="hidden lg:block">
-        <Hero bg={[services]} btn={false} />
+        <Hero
+          bg={[ServiceImg]}
+          btn={false}
+          title="Empowering Agriculture, One Innovation at a Time"
+          subTitle="From farm to factory to freight — Henstock Foods delivers more than commodities."
+        />
       </div>
 
       <motion.div

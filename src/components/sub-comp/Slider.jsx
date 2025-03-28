@@ -9,7 +9,8 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link as ScrollLink } from "react-scroll";
 
-const Slider = ({ bg, btn }) => {
+const Slider = ({ bg = [], btn, title = "", subTitle = "" }) => {
+
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -61,11 +62,10 @@ const Slider = ({ bg, btn }) => {
                 className="lg:max-w-[967px] mx-auto lg:p-10 grid gap-3"
               >
                 <p className="font-[Averia Serif Libre] font-bold leading-[1.1] text-5xl lg:text-6xl text-[#ffffff] text-center">
-                  Nourishing Lives, Empowering Farmers.
+                  {title}
                 </p>
                 <p className="font-[DM Sans] font-medium text-[#ffffff] text-lg text-center">
-                  Providing quality agro-commodity trade, food production, and
-                  modern farm solutions.
+                  {subTitle}
                 </p>
 
                 {btn && (
@@ -74,7 +74,6 @@ const Slider = ({ bg, btn }) => {
                       to="card-section"
                       spy={true}
                       smooth={true}
-                      // offset={-10}
                       duration={1000}
                     >
                       <CustomBtn title="Learn more" />

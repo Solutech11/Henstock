@@ -1,30 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { Button, Hero, ImageCard, Testimonials } from "../components";
 import { Link as ScrollLink } from "react-scroll";
-import {
-  bags_o_grains,
-  bg1,
-  bg2,
-  bg3,
-  bg4,
-  bg5,
-  bg6,
-  charcoal,
-  grains,
-  grid,
-  guy,
-  hangfruits,
-  heavytruck,
-  image,
-  logistics,
-  oils,
-  packages,
-  packaging,
-  spices,
-  vinesCutout,
-  grill,
-  nuts1,
-} from "../assets";
+import { bg1, bg2, bg3, bg6, guy, nuts1 } from "../assets";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { BsFlower1 } from "react-icons/bs";
@@ -37,13 +14,20 @@ import Field from "../assets/field.png";
 import { useNavigate } from "react-router-dom";
 import AnimatedText from "../components/AnimatedText";
 
-const bgArray = [bg1, bg2, bg3, bg6];
-
 const Homepage = () => {
+  const heroData = {
+    Bg: [bg1, bg2, bg3, bg6],
+    title: "Nourishing Lives, Empowering Farmers.",
+    subTitle:
+      "Providing quality agro-commodity trade, food production, and modern farm solutions.",
+  };
+
+  const bgArray = useMemo(() => heroData.Bg, []);
+
   return (
     <>
       <div className="w-full block lg:hidden">
-        <Hero bg={bgArray}>
+        <Hero bg={bgArray} title={heroData.title} subTitle={heroData.subTitle}>
           <AnimatedText text="Nourishing Lives, Empowering Farmers." />
           <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
             Providing quality agro-commodity trade, food production, and modern
@@ -58,14 +42,14 @@ const Homepage = () => {
               // offset={-10}
               duration={1000}
             >
-              <CustomBtn title="Learn More"/>
+              <CustomBtn title="Learn More" />
             </ScrollLink>
           </div>
         </Hero>
       </div>
 
       <div className="hidden lg:block">
-        <Hero bg={bgArray} btn={true} />
+        <Hero bg={bgArray} btn={true} title={heroData.title} subTitle={heroData.subTitle} />
       </div>
 
       <Info1 />
@@ -106,7 +90,7 @@ const Info1 = () => {
       className="relative w-full pt-[50px] lg:pt-[100px] bg-[#fff]"
       // ref={ref}
     >
-      {" "}
+     
       <div
         id="card-section"
         className="w-[90%] lg:w-[85%] mx-auto flex flex-col md:flex-row"
@@ -324,7 +308,7 @@ const Info3 = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={controls}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="relative w-full bg-[#fff] "
+      className="relative w-full bg-[#fff]"
     >
       <img
         src={Sprinkle}

@@ -1,12 +1,9 @@
 import React from "react";
-import bg6 from "../../../assets/bg6.jpg";
-import imgT3 from "../../../assets/T3.jpg";
-import imgT4 from "../../../assets/T3i.jpg";
-import eq1 from "../../../assets/v1.jpg";
-import eq2 from "../../../assets/v2.jpg";
-import eq3 from "../../../assets/v3.jpg";
+import eq1 from "../../../assets/ag1.jpg";
+import eq2 from "../../../assets/ag2.jpg";
+import eq3 from "../../../assets/ag3.jpg";
 
-const Tab4 = ({ label }) => {
+const Tab5 = ({ label }) => {
   return (
     <div className="w-full grid gap-9 lg:py-20">
       <div className="grid gap-5">
@@ -16,43 +13,30 @@ const Tab4 = ({ label }) => {
           </p>
         </div>
         <div className="w-full grid lg:grid-cols-5 gap-5 mt-10">
-          <div className="lg:col-span-2 grid gap-3">
+          <div className="lg:col-span-2 grid lg:gap-0 gap-3">
             <p className="text-[17px] text-[#1E1E1E] font-[DM Sans] font-normal">
-              We don’t just supply products — we empower businesses with
-              knowledge. Henstock Foods offers expert advisory services,
-              providing market insights, quality assurance support, and
-              specialized agro-processing training to help clients succeed.
+              Henstock Foods is bridging the gap between large-scale suppliers
+              and small-scale buyers
             </p>
-            <div className="w-full grid gap-5">
+            <div className="w-full grid lg:gap-0 gap-3">
               <div className="flex space-x-2">
-                <div className="w-3.5 h-[5px] mt-2 rounded-full bg-black"></div>
+                <div className="w-2.5 h-[5px] mt-2 rounded-full bg-black"></div>
                 <p className="font-[DM Sans] font-normal text-[#1E1E1E] text-[17px]">
                   <span className="font-medium text-black">
-                    Market Research & Pricing Trends:
+                    Online Agro-Commodity Marketplace:
                   </span>{" "}
-                  Delivering data-driven insights into global market pricing,
-                  demand trends, and supply chain analysis.
+                   A convenient platform for small-scale buyers to purchase
+                  high-quality agricultural products directly.
                 </p>
               </div>
               <div className="flex space-x-2">
                 <div className="w-2.5 h-[5px] mt-2 rounded-full bg-black"></div>
                 <p className="font-[DM Sans] font-normal text-[#1E1E1E] text-[17px]">
                   <span className="font-medium text-black">
-                    Agro-Processing & Value Addition Training:
+                    Subscription & Bulk Purchasing Plans:
                   </span>{" "}
-                  Equipping businesses with techniques to maximize product
-                  usability and profitability.
-                </p>
-              </div>
-              <div className="flex space-x-2">
-                <div className="w-2.5 h-[5px] mt-2 rounded-full bg-black"></div>
-                <p className="font-[DM Sans] font-normal text-[#1E1E1E] text-[17px]">
-                  <span className="font-medium text-black">
-                     Quality Control & Assurance Services:
-                  </span>{" "}
-                  Helping clients achieve international food safety standards
-                  through laboratory testing, certification, and compliance
-                  guidance.
+                  Offering long-term supply contracts with discounts and
+                  tailored deals for returning clients and high-volume buyers.
                 </p>
               </div>
             </div>
@@ -80,4 +64,4 @@ const Tab4 = ({ label }) => {
   );
 };
 
-export default Tab4;
+export default Tab5;
