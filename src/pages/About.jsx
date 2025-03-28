@@ -70,12 +70,12 @@ const Main = () => {
     {
       id: Math.floor(Math.random() * 10000),
       title: "Our Mission",
-      meg: "Our mission is to support farmers and communities by providing market access and fair trade opportunities. We aim to deliver exceptional agricultural products and services that meet the highest standards of quality and safety.",
+      meg: "Henstock Foods Ltd. is committed to producing and marketing superior quality agro-allied products using the latest technology. By investing in people and the environment, the company seeks to provide attractive returns to stakeholders while being a responsible corporate entity in Nigeria",
     },
     {
       id: Math.floor(Math.random() * 10000),
       title: "Our Vision",
-      meg: "To be a prominent player in the agro-allied industry and livestock production in Nigeria and beyond, driving sustainable growth and innovation.",
+      meg: "Henstock Foods Ltd. aspires to be a prominent player in the agro-allied industry, livestock production, and supply chain management in Nigeria and internationally. The company aims to drive sustainable agricultural growth through quality production, ethical business practices, and continuous improvement",
     },
   ];
 
@@ -105,12 +105,7 @@ const Main = () => {
                 </p>
               </div>
               <p className="text-[17px] font-[DM Sans] font-normal lg:pr-10">
-                HENSTOCK FOODS LTD was established to play a significant role in
-                Nigeria’s agricultural industry. We are dedicated to
-                agro-commodity trade, food processing, packaging, and the supply
-                of modern agricultural machinery. Our expertise spans research,
-                aggregation, and supply of rare agro-commodities, as well as
-                large-scale farming and livestock feed production.
+              Henstock Foods Ltd. is a leading agro-allied company in Nigeria, dedicated to transforming the agricultural sector through food manufacturing, agro-commodity trading, farming, agricultural consultancy, and supply chain solutions. Registered as a private limited liability company with RC: 1485959, the company plays a significant role in reducing food imports, supporting local production, and fostering economic growth.
               </p>
             </div>
 

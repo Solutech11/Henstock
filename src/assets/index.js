@@ -1,7 +1,7 @@
 export { default as bags_o_grains } from "./farm_products.jpg";
 export { default as henstockLogo } from "./logo.png";
 export { default as henstockLogoCircle } from "./logo.png";
-export { default as nuts1 } from "./nuts1.jpg";
+export { default as nuts1 } from "./limage.png";
 
 export { default as guy } from "./guy.jpg";
 export { default as grill } from "./grill.jpg";
@@ -32,7 +32,7 @@ export { default as bg3 } from "./bg3.jpg";
 export { default as bg4 } from "./bg4.jpg";
 export { default as bg5 } from "./bg5.jpg";
 export { default as bg6 } from "./bg6.jpg";
-export { default as services } from "./services.jpg";
+export { default as services } from "./services.png";
 export { default as contact } from "./contact.jpg";
 export { default as heavytruck } from "./heavytruck.png";
 export { default as AgroExport } from "./agroEXP.jpeg";

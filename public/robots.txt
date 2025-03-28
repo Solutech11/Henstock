@@ -16,4 +16,4 @@ Disallow:
 User-agent: *
 Disallow: 
 Disallow: /css
-Sitemap: https://www.vastspringpower.com/sitemap.xml
+Sitemap: https://www.henstockfoods.com/sitemap.xml
