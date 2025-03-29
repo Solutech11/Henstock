@@ -12,17 +12,17 @@ const links = [
   { to: "/services", label: "Services" },
   {
     label: "Product",
-    // to: "#",
+    to: "/products",
     subMenu: [
       {
         name: "Sesame Seeds",
         to: "/products/sesame-seeds",
-        bord: true
+        bord: true,
       },
       {
         name: "Raw Cashew Nuts",
         to: "/products/cashew-nut",
-        bord: true
+        bord: true,
       },
       {
         name: "Cassia Tora",
@@ -31,21 +31,21 @@ const links = [
       {
         name: "Neem Seeds",
         to: "/products/neem-seeds",
-        bord: true
+        bord: true,
       },
       {
         name: "Dried Split Ginger",
         to: "/products/dried-ginger",
-        bord: true
+        bord: true,
       },
       {
         name: "Soya Beans",
         to: "/products/soya-beans",
       },
-       {
+      {
         name: "Cocoa",
         to: "/products/cocoa",
-        bord: true
+        bord: true,
       },
     ],
     gridCols: 2,
@@ -53,8 +53,15 @@ const links = [
   { to: "/contact", label: "Contact" },
 ];
 
-const DesktopMenuDropdown = ({ menu, isScrolled }) => {
+const DesktopMenuDropdown = ({ menu, isScrolled, currentPath }) => {
   const [isHover, setIsHover] = useState(false);
+  const location = useLocation();
+
+  const isProductRoute = location.pathname.startsWith("/products");
+
+  const isActive =
+    menu.to === location.pathname ||
+    (menu.label === "Product" && isProductRoute);
 
   const subMenuAnimate = {
     enter: {
@@ -81,34 +88,52 @@ const DesktopMenuDropdown = ({ menu, isScrolled }) => {
 
   return (
     <motion.div
-      className=" group w-full"
+      className="group w-full"
       onHoverStart={() => setIsHover(true)}
       onHoverEnd={() => setIsHover(false)}
     >
-      <NavLink
-        to={menu.to}
-        className={({ isActive }) => `
-          flex items-center gap-1 transition font-medium text-[17px]
-          ${
-            isActive
-              ? isScrolled
-                ? "text-[#F16C21]"
-                : "text-[#FFFFFF]"
-              : isScrolled
-              ? "text-gray-800 hover:text-[#F16C21]"
-              : "text-[#919191] hover:text-gray-200"
-          }
-        `}
-      >
-        {menu.label}
-        {hasSubMenu && (
+      {hasSubMenu ? (
+        <div
+          className={`
+            flex items-center gap-1 transition font-medium text-[17px] cursor-pointer
+            ${
+              isActive
+                ? isScrolled
+                  ? "text-[#F16C21]"
+                  : "text-[#FFFFFF]"
+                : isScrolled
+                ? "text-gray-800 hover:text-[#F16C21]"
+                : "text-[#919191] hover:text-gray-200"
+            }
+          `}
+        >
+          {menu.label}
           <IoIosArrowDown
             className={`mt-[0.6px] transform duration-200 
               ${isHover ? "rotate-180" : "rotate-0"}
             `}
           />
-        )}
-      </NavLink>
+        </div>
+      ) : (
+        <NavLink
+          to={menu.to}
+          end
+          className={({ isActive }) => `
+            flex items-center gap-1 transition font-medium text-[17px]
+            ${
+              isActive
+                ? isScrolled
+                  ? "text-[#F16C21]"
+                  : "text-[#FFFFFF]"
+                : isScrolled
+                ? "text-gray-800 hover:text-[#F16C21]"
+                : "text-[#919191] hover:text-gray-200"
+            }
+          `}
+        >
+          {menu.label}
+        </NavLink>
+      )}
 
       {hasSubMenu && (
         <motion.div
@@ -120,7 +145,11 @@ const DesktopMenuDropdown = ({ menu, isScrolled }) => {
           <div
             className={`
               shadow-xl rounded-xl py-5 w-full 
-              ${isScrolled ? "bg-white/100 backdrop-blur-3xl shadow-xl text-black" : "bg-white/20 backdrop-blur-3xl"}
+              ${
+                isScrolled
+                  ? "bg-white/100 backdrop-blur-3xl shadow-xl text-black"
+                  : "bg-white/30 backdrop-blur-3xl"
+              }
             `}
           >
             <div
@@ -136,20 +165,22 @@ const DesktopMenuDropdown = ({ menu, isScrolled }) => {
                 <Link
                   key={i}
                   to={submenu.to || "#"}
-                  className={`relative cursor-pointer  ${submenu.bord === true && "border-r-2 border-white"} `}
+                  className={`relative cursor-pointer ${
+                    submenu.bord === true && "border-r-2 border-white"
+                  } `}
                 >
                   <div className="rounded-lg py-3 px-3 group hover:bg-[#F16C21] mx-2">
-                    {/* <h6 className={`font-semibold ${isScrolled ? "text-black group-hover:text-white" : "text-white"}`}>{submenu.name}</h6> */}
-                    <h6 
-                        className={`
-                          font-semibold 
-                          ${isScrolled 
-                            ? "text-black group-hover:text-white" 
+                    <h6
+                      className={`
+                        font-semibold 
+                        ${
+                          isScrolled
+                            ? "text-black group-hover:text-white"
                             : "text-white"
-                          }`}
-                      >
-                        {submenu.name}
-                      </h6>
+                        }`}
+                    >
+                      {submenu.name}
+                    </h6>
                   </div>
                 </Link>
               ))}
@@ -206,7 +237,6 @@ const Navbar = () => {
     `}
     >
       <div className="lg:w-[85%] mx-auto px-4 flex justify-between items-center h-[10vh]">
-        {/* Logo */}
         <Link to="/" className="flex items-center">
           <img
             src={henstockLogo}
@@ -215,7 +245,6 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Desktop Navigation */}
         {windowWidth > 768 && (
           <nav className="flex gap-10 rounded-full bg-white/10 backdrop-blur-sm px-10 mt-3 py-3">
             {links.map((link) => (
@@ -223,12 +252,12 @@ const Navbar = () => {
                 key={link.label}
                 menu={link}
                 isScrolled={isScrolled}
+                currentPath={location.pathname}
               />
             ))}
           </nav>
         )}
 
-        {/* Social Icons (Visible on Desktop) */}
         <div className="hidden md:flex space-x-4">
           <FaWhatsapp
             size={24}
@@ -265,7 +294,6 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Mobile Menu Toggle */}
         <div
           className="md:hidden cursor-pointer z-50 md:z-0"
           onClick={() => setNavOpen(!navOpen)}
@@ -278,26 +306,31 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {navOpen && (
         <div className="absolute top-0 left-0 z-40 bg-white w-full h-screen fixed px-8 py-16 md:hidden">
           <ul className="flex flex-col justify-center h-full">
             {links.map((link) => (
-              <li key={link.to} className="py-4 text-center w-full">
-                <Link
-                  to={link.to}
-                  onClick={handleMobileLinkClick}
-                  className={`
-                    text-lg font-semibold transition-colors duration-300
-                    ${
-                      location.pathname === link.to
-                        ? "text-[#F16C21] font-bold"
-                        : "text-gray-700 hover:text-[#F16C21]"
-                    }
-                  `}
-                >
-                  {link.label}
-                </Link>
+              <li key={link.label} className="py-4 text-center w-full">
+                {link.subMenu ? (
+                  <div className="text-lg font-semibold text-gray-700">
+                    {link.label}
+                  </div>
+                ) : (
+                  <Link
+                    to={link.to}
+                    onClick={handleMobileLinkClick}
+                    className={`
+                      text-lg font-semibold transition-colors duration-300
+                      ${
+                        location.pathname === link.to
+                          ? "text-[#F16C21] font-bold"
+                          : "text-gray-700 hover:text-[#F16C21]"
+                      }
+                    `}
+                  >
+                    {link.label}
+                  </Link>
+                )}
                 {link.subMenu && (
                   <div className="mt-4 space-y-2">
                     {link.subMenu.map((subItem) => (
@@ -305,7 +338,14 @@ const Navbar = () => {
                         key={subItem.name}
                         to={subItem.to}
                         onClick={handleMobileLinkClick}
-                        className="block text-sm text-gray-600 hover:text-[#F16C21]"
+                        className={`
+                          block text-sm
+                          ${
+                            location.pathname === subItem.to
+                              ? "text-[#F16C21] font-semibold"
+                              : "text-gray-600 hover:text-[#F16C21]"
+                          }
+                        `}
                       >
                         {subItem.name}
                       </Link>

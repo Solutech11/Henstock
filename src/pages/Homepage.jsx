@@ -49,7 +49,12 @@ const Homepage = () => {
       </div>
 
       <div className="hidden lg:block">
-        <Hero bg={bgArray} btn={true} title={heroData.title} subTitle={heroData.subTitle} />
+        <Hero
+          bg={bgArray}
+          btn={true}
+          title={heroData.title}
+          subTitle={heroData.subTitle}
+        />
       </div>
 
       <Info1 />
@@ -90,7 +95,6 @@ const Info1 = () => {
       className="relative w-full pt-[50px] lg:pt-[100px] bg-[#fff]"
       // ref={ref}
     >
-     
       <div
         id="card-section"
         className="w-[90%] lg:w-[85%] mx-auto flex flex-col md:flex-row"
@@ -382,22 +386,13 @@ const Info3 = () => {
                 Get in touch today for inquiries, partnerships, and product
                 orders.
               </p>
-              <div className="w-full justify-center items-center mt-10">
-                <div className="lg:w-[466px] w-full mx-auto flex justify-between items-center bg-white/10 backdrop-blur-sm rounded-full">
-                  <input
-                    type="email"
-                    name=""
-                    id=""
-                    placeholder="Enter your email address"
-                    className="p-3.5 w-full font-[DM Sans] outline-none text-[#fff] bg-transparent border-none"
-                  />
-                  <button
-                    className="font-[DM Sans] font-medium text-base text-white rounded-full bg-[#5C8A3F] px-8 py-3.5"
-                    type="button"
-                  >
-                    Submit
-                  </button>
-                </div>
+              <div className="w-full flex justify-center items-center mt-6">
+                <button
+                  type="button"
+                  className="text-base text-white font-[DM Sans] font-medium bg-[#5C8A3F] rounded-full px-7 py-3 mx-auto"
+                >
+                  Request a quote
+                </button>
               </div>
             </div>
           </div>
