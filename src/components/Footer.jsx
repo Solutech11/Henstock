@@ -13,6 +13,8 @@ import Lkd from "../assets/LinkedIn.png";
 import Fb from "../assets/Facebook.png";
 import X from "../assets/X.png";
 
+import logo from "../assets/HFLogo2.png";
+
 const Footer = () => {
   return (
     <footer className="relative bg-white pt-10 lg:pt-20">
@@ -25,9 +27,9 @@ const Footer = () => {
         <div className="w-full grid gap-7 lg:col-span-2">
           <Link to="/" className="lg:h-16 cursor-pointer flex items-center">
             <img
-              src={Logo}
+              src={logo}
               alt="Henstock Logo"
-              className="w-[75px] h-[75px] object-contain z-10 relative bg-transparent "
+              className="w-[100px] h-[100px] object-contain z-10 relative bg-transparent "
             />
           </Link>
           <p className="text-base text-black font-[DM Sans] font-normal">
@@ -46,7 +48,7 @@ const Footer = () => {
               📍 Address: No. 18, Huambo Crescent Street, Zone 7, Abuja, Nigeria
             </p>
             <p className="font-[DM Sans] font-normal text-base">
-              📞 Phone: +234 708 222 2184, +234 811 868 4626
+              📞 Phone: 07077777252, 07082222184
             </p>
           </div>
         </div>

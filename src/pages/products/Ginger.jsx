@@ -10,13 +10,14 @@ import g1 from "../../assets/g1.png";
 import g2 from "../../assets/g2.png";
 import g3 from "../../assets/g3.png";
 import g4 from "../../assets/g4.png";
+import GH from "../../assets/gingerH.jpg";
 
 const Ginger = () => {
   return (
     <>
       {/* Mobile Hero Section */}
       <div className="w-full block lg:hidden">
-        <Hero bg={[ProdImage]}>
+        <Hero bg={[GH]}>
           <AnimatedText text="DRIED SPLIT GINGER" />
           <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
             We export top-grade dried split ginger, known for its strong aroma
@@ -29,7 +30,7 @@ const Ginger = () => {
       {/* Desktop Hero Section */}
       <div className="hidden lg:block">
         <Hero
-          bg={[ProdImage]}
+          bg={[GH]}
           btn={false}
           title="DRIED SPLIT GINGER"
           subTitle="We export top-grade dried split ginger, known for its strong aroma and high oil content, widely used in pharmaceuticals and food processing."

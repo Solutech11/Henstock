@@ -10,12 +10,13 @@ import S1 from "../../assets/s1.png";
 import S2 from "../../assets/s2.png";
 import S3 from "../../assets/s3.png";
 import S4 from "../../assets/s4.png";
+import SH from "../../assets/SesameH.jpg";
 
 const Sesame = () => {
   return (
     <>
       <div className="w-full block lg:hidden">
-        <Hero bg={[ProdImage]}>
+        <Hero bg={[SH]}>
           <AnimatedText text="SESAME SEEDS" />
           <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
             One of Nigeria’s top export crops, sesame seeds are known for their
@@ -26,7 +27,7 @@ const Sesame = () => {
       </div>
       <div className="hidden lg:block">
         <Hero
-          bg={[ProdImage]}
+          bg={[SH]}
           btn={false}
           title="SESAME SEEDS"
           subTitle="One of Nigeria’s top export crops, sesame seeds are known for their high oil content and nutritional benefits. We supply premium-grade sesame seeds for both local processing and international export."

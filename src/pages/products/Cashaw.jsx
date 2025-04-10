@@ -10,12 +10,13 @@ import c1 from "../../assets/c1.png";
 import c2 from "../../assets/c2.png";
 import c3 from "../../assets/c3.png";
 import c4 from "../../assets/c4.png";
+import CH from "../../assets/cashewH.jpg";
 
 const Cashaw = () => {
   return (
     <>
       <div className="w-full block lg:hidden">
-        <Hero bg={[ProdImage]}>
+        <Hero bg={[CH]}>
           <AnimatedText text="RAW CASHEW NUTS" />
           <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
             Our raw cashew nuts are carefully selected from Nigeria’s best
@@ -26,7 +27,7 @@ const Cashaw = () => {
       </div>
       <div className="hidden lg:block">
         <Hero
-          bg={[ProdImage]}
+          bg={[CH]}
           btn={false}
           title="RAW CASHEW NUTS"
           subTitle="Our raw cashew nuts are carefully selected from Nigeria’s best farms, ensuring freshness, high kernel yield, and export-grade quality."

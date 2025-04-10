@@ -13,6 +13,7 @@ import global from "../assets/global.png";
 import Field from "../assets/field.png";
 import { useNavigate } from "react-router-dom";
 import AnimatedText from "../components/AnimatedText";
+import agri1 from "../assets/ag1.jpg";
 
 const Homepage = () => {
   const heroData = {
@@ -107,7 +108,7 @@ const Info1 = () => {
           viewport={{ once: true, amount: 0.1 }}
         >
           <img
-            src={guy}
+            src={agri1}
             alt=""
             className="lg:w-[90%] mx-auto lg:h-[600px] rounded-3xl"
           />

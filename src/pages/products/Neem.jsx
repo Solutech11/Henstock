@@ -10,12 +10,13 @@ import c1 from "../../assets/n1.png";
 import c2 from "../../assets/n2.png";
 import c3 from "../../assets/n3.png";
 import c4 from "../../assets/n4.jpg";
+import NeemH from "../../assets/n2.png";
 
 const Neem = () => {
   return (
     <>
       <div className="w-full block lg:hidden">
-        <Hero bg={[ProdImage]}>
+        <Hero bg={[NeemH]}>
           <AnimatedText text="NEEM SEEDS" />
           <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
             Known for their pesticidal and medicinal properties, our neem seeds
@@ -25,7 +26,7 @@ const Neem = () => {
       </div>
       <div className="hidden lg:block">
         <Hero
-          bg={[ProdImage]}
+          bg={[NeemH]}
           btn={false}
           title="NEEM SEEDS"
           subTitle="Known for their pesticidal and medicinal properties, our neem seeds are sourced from organic farms and processed with precision."

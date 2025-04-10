@@ -5,6 +5,7 @@ import { FiFacebook, FiInstagram } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 import { motion } from "framer-motion";
 import { henstockLogo } from "../assets";
+import logo from "../assets/HFLogo2.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -239,9 +240,9 @@ const Navbar = () => {
       <div className="lg:w-[85%] mx-auto px-4 flex justify-between items-center h-[10vh]">
         <Link to="/" className="flex items-center">
           <img
-            src={henstockLogo}
+            src={logo}
             alt="Henstock Logo"
-            className="w-[70px] h-[70px] object-contain z-50"
+            className="w-[90px] h-[90px] object-contain z-50"
           />
         </Link>
 
@@ -259,9 +260,10 @@ const Navbar = () => {
         )}
 
         <div className="hidden md:flex space-x-4">
-          <FaWhatsapp
-            size={24}
-            className={`
+          <a href="">
+            <FaWhatsapp
+              size={24}
+              className={`
               transition-colors duration-300
               ${
                 isScrolled
@@ -269,10 +271,13 @@ const Navbar = () => {
                   : "text-white hover:text-green-300"
               }
             `}
-          />
-          <FiFacebook
-            size={24}
-            className={`
+            />
+          </a>
+
+          <a href="#">
+            <FiFacebook
+              size={24}
+              className={`
               transition-colors duration-300
               ${
                 isScrolled
@@ -280,8 +285,23 @@ const Navbar = () => {
                   : "text-white hover:text-blue-300"
               }
             `}
-          />
-          <FiInstagram
+            />
+          </a>
+
+          <a href="#">
+            <FiInstagram
+              size={24}
+              className={`
+              transition-colors duration-300
+              ${
+                isScrolled
+                  ? "text-gray-600 hover:text-pink-500"
+                  : "text-white hover:text-pink-300"
+              }
+            `}
+            />
+          </a>
+          {/* <FiInstagram
             size={24}
             className={`
               transition-colors duration-300
@@ -291,7 +311,7 @@ const Navbar = () => {
                   : "text-white hover:text-pink-300"
               }
             `}
-          />
+          /> */}
         </div>
 
         <div

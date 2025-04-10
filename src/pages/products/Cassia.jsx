@@ -10,12 +10,13 @@ import c1 from "../../assets/ca1.png";
 import c2 from "../../assets/ca2.png";
 import c3 from "../../assets/ca3.png";
 import c4 from "../../assets/ca4.png";
+import cH from "../../assets/cc1.png";
 
 const Cassia = () => {
   return (
     <>
       <div className="w-full block lg:hidden">
-        <Hero bg={[ProdImage]}>
+        <Hero bg={[cH]}>
           <AnimatedText text="CASSIA TORA" />
           <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
             A valuable herb used in food and medicinal industries, Cassia Tora
@@ -25,7 +26,7 @@ const Cassia = () => {
       </div>
       <div className="hidden lg:block">
         <Hero
-          bg={[ProdImage]}
+          bg={[cH]}
           btn={false}
           title="CASSIA TORA"
           subTitle="A valuable herb used in food and medicinal industries, Cassia Tora is sourced from trusted farms to meet export quality standards."

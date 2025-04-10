@@ -45,17 +45,6 @@ const Contact = () => {
     message: "",
   });
 
-  const handleCaptchaChange = (value) => {
-    setCaptchaValue(value);
-    if (formStatus.message.includes("reCAPTCHA")) {
-      setFormStatus({
-        submitted: false,
-        success: false,
-        message: "",
-      });
-    }
-  };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -89,15 +78,6 @@ const Contact = () => {
     const validationErrors = validate(formData);
     setErrors(validationErrors);
 
-    if (!captchaValue) {
-      setFormStatus({
-        submitted: true,
-        success: false,
-        message: "Please complete the reCAPTCHA verification.",
-      });
-      return;
-    }
-
     if (Object.keys(validationErrors).length === 0) {
       setIsSubmitting(true);
 
@@ -109,8 +89,7 @@ const Contact = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            ...formData,
-            "g-recaptcha-response": captchaValue,
+            ...formData
           }),
         });
 
@@ -122,9 +101,7 @@ const Contact = () => {
             success: true,
             message: "Thank you for your message! We'll get back to you soon.",
           });
-          if (recaptchaRef.current) {
-            recaptchaRef.current.reset();
-          }
+          
           setCaptchaValue(null);
           setFormData({
             name: "",
@@ -234,7 +211,7 @@ const Contact = () => {
                       error={errors.email}
                     />
 
-                    <CustomInput
+                    {/* <CustomInput
                       placeholder="000000"
                       label="Phone Number"
                       type="number"
@@ -242,7 +219,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       error={errors.phone}
-                    />
+                    /> */}
 
                     <div className="mb-4">
                       <label
@@ -269,11 +246,11 @@ const Contact = () => {
                     </div>
 
                     <div className="mb-3">
-                      <ReCAPTCHA
+                      {/* <ReCAPTCHA
                         ref={recaptchaRef}
                         sitekey="6Ldzx_QqAAAAALrX8txAVXy94A9m4su9AvZ1Ut65"
                         onChange={handleCaptchaChange}
-                      />
+                      /> */}
                       {formStatus.submitted &&
                         !captchaValue &&
                         formStatus.message.includes("reCAPTCHA") && (
@@ -320,7 +297,7 @@ const Contact = () => {
                       Phone
                     </p>
                     <p className="font-[DM Sans] font-normal text-base text-black">
-                      +234 708 222 2184, +234 811 868 4626
+                    07077777252, 07082222184
                     </p>
                   </div>
                 </div>
@@ -362,9 +339,9 @@ const Contact = () => {
                 <div className="p-3 flex justify-center items-center cursor-pointer rounded-full bg-[#EFEEEE]">
                   <RiTwitterXLine size={20} color="#F16C21" />
                 </div>
-                <div className="p-3 flex justify-center items-center cursor-pointer rounded-full bg-[#EFEEEE]">
+                <a href="info@henstockfoods.com" className="p-3 flex justify-center items-center cursor-pointer rounded-full bg-[#EFEEEE]">
                   <BiLogoGmail size={20} color="#F16C21" />
-                </div>
+                </a>
               </div>
             </div>
           </div>

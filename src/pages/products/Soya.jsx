@@ -10,12 +10,13 @@ import c1 from "../../assets/sy1.png";
 import c2 from "../../assets/sy2.png";
 import c3 from "../../assets/sy3.png";
 import c4 from "../../assets/sy4.png";
+import SH from "../../assets/soyaH.jpg";
 
 const Soya = () => {
   return (
     <>
       <div className="w-full block lg:hidden">
-        <Hero bg={[ProdImage]}>
+        <Hero bg={[SH]}>
           <AnimatedText text="SOYA BEANS" />
           <p className="font-[DM Sans] font-medium text-[#ffffff] mt-5 text-lg text-center">
             Our non-GMO soybeans are perfect for both local consumption and
@@ -25,7 +26,7 @@ const Soya = () => {
       </div>
       <div className="hidden lg:block">
         <Hero
-          bg={[ProdImage]}
+          bg={[SH]}
           btn={false}
           title="SOYA BEANS"
           subTitle="Our non-GMO soybeans are perfect for both local consumption and international processing into soy-based products."
