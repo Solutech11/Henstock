@@ -333,9 +333,9 @@ const Contact = () => {
                 <div className="p-3 flex justify-center items-center cursor-pointer rounded-full bg-[#EFEEEE]">
                   <FaInstagram size={20} color="#F16C21" />
                 </div>
-                <div className="p-3 flex justify-center items-center cursor-pointer rounded-full bg-[#EFEEEE]">
+                <a href="https://www.linkedin.com/company/henstock-foods-limited/" className="p-3 flex justify-center items-center cursor-pointer rounded-full bg-[#EFEEEE]">
                   <FaLinkedinIn size={20} color="#F16C21" />
-                </div>
+                </a>
                 <div className="p-3 flex justify-center items-center cursor-pointer rounded-full bg-[#EFEEEE]">
                   <RiTwitterXLine size={20} color="#F16C21" />
                 </div>

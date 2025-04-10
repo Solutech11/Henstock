@@ -1,5 +1,6 @@
 import React from "react";
 import { henstockLogo } from "../assets";
+import Logo from "../assets/HFLogo2.png";
 
 const LoadingScreen = () => {
   return (
@@ -9,9 +10,9 @@ const LoadingScreen = () => {
 
         <div className="absolute inset-0 flex justify-center items-center">
           <img
-            src={henstockLogo}
+            src={Logo}
             alt="Henstock Logo"
-            className="w-16 h-16 object-contain"
+            className="w-20 h-20 object-contain"
           />
         </div>
       </div>

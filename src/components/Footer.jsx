@@ -189,8 +189,8 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      to={PATH_HOME.general.services}
+                    <a
+                     href=""
                       className="text-[black] flex items-center space-x-2 font-[DM Sans] font-normal text-base hover:text-[#5C8A3F]"
                     >
                       <svg
@@ -211,11 +211,11 @@ const Footer = () => {
                         ></path>
                       </svg>
                       <span>FaceBook</span>
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link
-                      to={PATH_HOME.general.contact}
+                    <a
+                      href="https://www.linkedin.com/company/henstock-foods-limited/"
                       className="text-[black] flex items-center space-x-2 font-[DM Sans] font-normal text-base hover:text-[#5C8A3F]"
                     >
                       <svg
@@ -245,7 +245,7 @@ const Footer = () => {
                       </svg>
                       <span>LinkedIn</span>
                       
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </div>

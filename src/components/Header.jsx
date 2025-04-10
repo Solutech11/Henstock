@@ -260,7 +260,7 @@ const Navbar = () => {
         )}
 
         <div className="hidden md:flex space-x-4">
-          <a href="">
+          <a href="https://wa.link/8chsfl" target="_blank" rel="noopener noreferrer">
             <FaWhatsapp
               size={24}
               className={`
