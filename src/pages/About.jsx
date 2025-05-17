@@ -14,6 +14,8 @@ import icon4 from "../assets/icon4.png";
 import Certificate from "../components/sub-comp/Certificate";
 import AnimatedText from "../components/AnimatedText";
 import AboutImg from "../assets/AboutImg.jpg";
+import seed2 from "../assets/seed2.jpg";
+
 
 const About = () => {
   return (
@@ -133,9 +135,9 @@ const Main = () => {
           viewport={{ once: true, amount: 0.1 }}
         >
           <img
-            src={bg6}
+            src={seed2}
             alt="crop-image"
-            className="w-full lg:h-[586px] rounded-3xl"
+            className="w-full lg:h-[586px] rounded-3xl object-cover"
           />
         </motion.div>
       </div>

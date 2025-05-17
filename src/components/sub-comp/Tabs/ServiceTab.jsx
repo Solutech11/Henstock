@@ -31,12 +31,12 @@ const ServiceTab = () => {
           </p>
         </div>
         <div className="w-full mt-16 grid gap-4">
-          <div className="flex justify-center items-center mb-14">
-            <ul className="rounded-[4px] flex flex-wrap gap-5 lg:gap-5 ">
+          <div className="flex justify-center items-center my-5">
+            <ul className="rounded-[4px] flex flex-wrap gap-5">
               {Tabs.map(({ label, key }) => (
                 <li key={key} className="text-sm cursor-pointer ">
                   <button
-                    className={`px-6 rounded-full py-3 text-base font-normal shadow-sm ${
+                    className={`px-5 rounded-full py-3 text-base font-normal shadow-sm ${
                       activeTab === key
                         ? "bg-[#5C8A3F] text-[#FFFFFF]"
                         : "text-[#1E1E1E] bg-[#F5F5F5]"

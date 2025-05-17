@@ -260,7 +260,11 @@ const Navbar = () => {
         )}
 
         <div className="hidden md:flex space-x-4">
-          <a href="https://wa.link/8chsfl" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://wa.link/8chsfl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaWhatsapp
               size={24}
               className={`
@@ -288,7 +292,10 @@ const Navbar = () => {
             />
           </a>
 
-          <a href="#">
+          <a
+            href="https://www.instagram.com/henstockfoods__ltd/profilecard/"
+            target="_blank"
+          >
             <FiInstagram
               size={24}
               className={`
@@ -301,17 +308,6 @@ const Navbar = () => {
             `}
             />
           </a>
-          {/* <FiInstagram
-            size={24}
-            className={`
-              transition-colors duration-300
-              ${
-                isScrolled
-                  ? "text-gray-600 hover:text-pink-500"
-                  : "text-white hover:text-pink-300"
-              }
-            `}
-          /> */}
         </div>
 
         <div

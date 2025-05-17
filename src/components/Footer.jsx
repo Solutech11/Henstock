@@ -102,8 +102,9 @@ const Footer = () => {
                 </h4>
                 <ul className="grid gap-3">
                   <li>
-                    <Link
-                      to={PATH_HOME.general.home}
+                    <a
+                      href="https://www.instagram.com/henstockfoods__ltd/profilecard/"
+                      target="_blank"
                       className="text-[black] flex items-center space-x-2 font-[DM Sans] font-normal text-base hover:text-[#5C8A3F]"
                     >
                       <svg
@@ -168,7 +169,7 @@ const Footer = () => {
                         ></path>
                       </svg>
                       <span>Instagram</span>
-                    </Link>
+                    </a>
                   </li>
                   <li>
                     <Link
@@ -216,6 +217,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="https://www.linkedin.com/company/henstock-foods-limited/"
+                      target="_blank"
                       className="text-[black] flex items-center space-x-2 font-[DM Sans] font-normal text-base hover:text-[#5C8A3F]"
                     >
                       <svg

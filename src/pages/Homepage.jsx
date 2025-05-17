@@ -14,10 +14,11 @@ import Field from "../assets/field.png";
 import { useNavigate } from "react-router-dom";
 import AnimatedText from "../components/AnimatedText";
 import agri1 from "../assets/ag1.jpg";
+import seed from "../assets/seed.jpg";
 
 const Homepage = () => {
   const heroData = {
-    Bg: [bg1, bg2, bg3, bg6],
+    Bg: [bg1, bg2, seed, bg6],
     title: "Nourishing Lives, Empowering Farmers.",
     subTitle:
       "Providing quality agro-commodity trade, food production, and modern farm solutions.",
